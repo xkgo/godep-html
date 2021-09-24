@@ -64,10 +64,10 @@ var GraphHtmlTemplate = `
                 let paths = [id]
                 let cnode = this.nodeMap[id]
                 while (true) {
-                    if (!cnode.Pid || cnode.Pid.length < 1) {
+                    if (!cnode.pid || cnode.pid.length < 1) {
                         break
                     }
-                    cnode = this.nodeMap[cnode.Pid]
+                    cnode = this.nodeMap[cnode.pid]
                     paths.push(cnode.title)
                 }
                 this.pathNodes.push(paths)
@@ -169,7 +169,7 @@ var GraphHtmlTemplate = `
                                 path = path + paths[j]
                                 let node = {title: paths[j], expand: true}
                                 if (pNode != null) {
-                                    node.Pid = pNode.title
+                                    node.pid = pNode.title
                                     pNode.children = [node]
                                 } else {
                                     tNode = node
